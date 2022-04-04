@@ -3,9 +3,9 @@
  */
 const visiteurs = [
   ['Gérard', 'Freschi', 'gfreschi0@discuz.net'],
-  ['Bendicty', 'Foster-Smith', 'bfostersmith1@mysql.com'],
+  ['Bendicty', 'bfostersmith1@mysql.com', 'Foster-Smith'],
   ['Michelle', 'Draude', 'mdraude2@csmonitor.com'],
-  ['Cathee', 'Meineck', 'cmeineck3@t-online.de'],
+  ['cmeineck3@t-online.de', 'Cathee', 'Meineck'],
   ['Marianna', 'Coal', 'mcoal4@creativecommons.org'],
 ];
 
@@ -52,8 +52,22 @@ console.log(visiteurs);
  * 3. Créer un tableau contenant que les adresses e-mails 
  *    en utilisant l'instruction map().
  */
-const emails = visiteurs.map(visiteur => {
+// Solution #1
+const emails1 = visiteurs.map(visiteur => {
   return visiteur[2];
 });
 
-console.log(emails);
+console.log(emails1);
+
+// Solution #2
+const emails2 = visiteurs.map(visiteur => {
+  // Filtre les infos contenu dans le second tableau
+  // en cherchant les résultats comportant un @
+  return visiteur.filter(infos => {
+    if (infos.includes('@')) {
+      return infos;
+    }
+  });
+});
+
+console.log(emails2);
